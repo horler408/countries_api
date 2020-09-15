@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background: hsl(207, 26%, 17%);
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+}
+
+.head {
+  min-width: 100%;
+  min-height: 10vh;
+  position: relative;
+  background: #2b3743;
+}
+
+.heading {
+  position: absolute;
+  color: antiquewhite;
+  left: 20px;
+  top: 10px;
+}
+
+.switch {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 12px;
+  color: antiquewhite;
+}
+
+.forms {
+  position: relative;
+  margin: 20px;
+  width: 100%;
+}
+
+.search {
+  position: absolute;
+  background: #2b3743;
+  height: 40px;
+  width: 30%;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.search input {
+  background: #2b3743;
+  border: 2px solid #2b3743;
+  color: antiquewhite;
+  outline: none;
+  width: 100%;
+  height: 100%;
+}
+
+.select {
+  position: absolute;
+  right: 20px;
+  height: 40px;
+  width: 150px;
+  margin-right: 2rem;
+}
+
+.select select {
+  background: #2b3743;
+  border: 2px solid #2b3743;
+  color: antiquewhite;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+}
+
+.holder {
+  position: relative;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  top: 10vh;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  flex-basis: 100%;
+  min-height: 100%;
+}
+
+.list-items {
+  width: 100%;
+  background: #2b3743;
+  margin: 20px;
+}
+
+.wrapper {
+  height: 100px;
+  color: white;
+  font-size: 12px;
+  padding: 15px;
+}
+
+img {
+  height: 100%;
+}
+
+@media only screen and (min-width: 400px) {
+  .list {
+    flex-basis: 25%;
+  }
+
+  .list-items {
+    width: 20%;
+  }
+}
