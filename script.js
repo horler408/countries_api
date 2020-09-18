@@ -50,14 +50,6 @@ switcher.addEventListener("click", () => {
   lightModeText.classList.toggle("mode-text");
 });
 
-window.addEventListener("DOMContentLoaded", () => {
-  getApi();
-  filterSelect();
-  filterSearch();
-
-  console.log("Loading...");
-});
-
 const getApi = async () => {
   const response = await fetch(url);
   const data = await response.json();
@@ -74,7 +66,7 @@ const displayCountryItems = (countryItems) => {
   let displayCountry = countryItems
     .map((country) => {
       return `<article class="menu-item">
-      <a href="#" class="anchor"><img src=${country.flag} alt="Flag Items" class="flags" /></a>
+      <a href="./single_page.html" class="anchor"><img src=${country.flag} alt="Flag Items" class="flags" /></a>
       <div class="wrapper">
         <h4 class="country-name">${country.name}</h4>
         <p class="population">Population: ${country.population}</p>
@@ -110,47 +102,24 @@ const filterSelect = (countryItems) => {
 
 var filterSearch = (searchItems) => {
   searchInput.addEventListener("keyup", (e) => {
-    console.log(e.currentTarget.value);
-    console.log(searchItems);
-    // const name = e.currentTarget.value;
-    // const countryName = searchItems.filter((searchItem) => {
-    //   if (searchItem.name === name) {
-    //     return searchItem;
-    //   }
-    // });
-    // //console.log(countryRegion);
-    // if (name === "") {
-    //   displayCountryItems(searchItems);
-    // } else {
-    //   displayCountryItems(countryName);
-    //   countScore.textContent = "";
-    // }
+    const name = e.currentTarget.value;
+    const countryName = searchItems.filter((searchItem) => {
+      if ((searchItem.length = 0)) {
+        countScore.textContent = "No result found!";
+      }
+      if (searchItem.name.toLowerCase() === name) {
+        return searchItem;
+      }
+    });
+    //console.log(countryRegion);
+    if (name === "") {
+      displayCountryItems(searchItems);
+    } else {
+      displayCountryItems(countryName);
+      countScore.textContent = "";
+    }
   });
 };
 
-// const filterSearch = async () => {
-//   let filter = searchItem.value.toUpperCase();
-
-//   // for (i = 0; i < items.length; i++) {
-//   //   a = items[i].getElementsByTagName("a")[0];
-//   //   txtValue = a.textContent || a.innerText;
-//   //   if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//   //     items[i].style.display = "";
-//   //   } else {
-//   //     items[i].style.display = "none";
-//   //   }
-//   // }
-//   const url = `https://restcountries.eu/rest/v2/name/${filter}`;
-//   const response = await fetch(url);
-//   const data = await response.json();
-//   console.log(data);
-
-//   if (searchItem.value === "") {
-//     displayCountryItems(data);
-//     countScore.textContent = `${data.length} countries matched`;
-//   }
-// };
-
 getApi();
 filterSelect();
-filterSearch();
