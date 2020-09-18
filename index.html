@@ -10,10 +10,15 @@
 
   <body>
     <div class="container">
+      <!-- Preloader -->
+      <div class="preloader">
+        <img src="./preloader.gif" alt="Preloader" />
+      </div>
+
       <div class="head">
         <h2 class="heading">Where in the world ?</h2>
-        <div class="switch">
-          <span>Dark Mode</span>
+        <div class="switch" id="mode">
+          <p><span id="dark-mode-text">Dark Mode</span><span id="light-mode-text">Light Mode</span><div class="switcher" id="switcher"><div class="inner-circle"></div></div></p>
         </div>
       </div>
 
@@ -23,26 +28,40 @@
             type="search"
             value=""
             placeholder="Search for a country..."
-            id=""
+            id="search"
+            class="input-search"
           />
         </div>
 
         <div class="select">
-          <select>
-            <option value="">Filter by Region</option>
-            <option value="Africa">Africa</option>
-            <option value="America">America</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
-            <option value="Oceania">Oceania</option>
+          <select id="select" class="choose">
+            <option value="" data-id="all">Filter by Region</option>
+            <option value="Africa" data-id="Africa">Africa</option>
+            <option value="Americas" data-id="Americas">Americas</option>
+            <option value="Asia" data-id="Asia">Asia</option>
+            <option value="Europe" data-id="Europe">Europe</option>
+            <option value="Oceania" data-id="Oceania">Oceania</option>
           </select>
         </div>
       </div>
-      <div class="holder" id="root">
-        <ul class="list" id="wrap"></ul>
-      </div>
+
+      <section class="holder" id="root">
+        <h3 class="count"></h3>
+        <!-- Country Items -->
+        <div class="item-container">
+          <article class="menu-item">
+            <a href="#" class="anchor"><img src="" alt="Flag Items" class="flags" /></a>
+            <div class="wrapper">
+              <h4 class="country-name"></h4>
+              <p class="population"></p>
+              <p class="region"></p>
+              <p class="capital"></p>
+            </div>
+          </article>
+        </div>
+      </section>
     </div>
 
-    <script src="./script.js"></script>
+    <script async src="./script.js"></script>
   </body>
 </html>

@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+:root {
+  --transition: all 0.3s linear;
+  --clr-white: #fff;
+}
+
+::before,
+::after,
 * {
   padding: 0;
   margin: 0;
@@ -8,6 +16,7 @@
 body {
   font-family: "Nunito Sans", sans-serif;
   background: hsl(207, 26%, 17%);
+  overflow-x: hidden;
 }
 
 .container {
@@ -20,6 +29,7 @@ body {
   min-height: 10vh;
   position: relative;
   background: #2b3743;
+  border: 2px solid #2b3743;
 }
 
 .heading {
@@ -27,33 +37,72 @@ body {
   color: antiquewhite;
   left: 20px;
   top: 10px;
+  font-size: 14px;
 }
 
 .switch {
   position: absolute;
-  right: 20px;
-  top: 10px;
-  font-size: 12px;
-  color: antiquewhite;
+  top: 50px;
+  left: 20px;
+  width: 150px;
+  margin-right: -20px;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.switcher {
+  position: absolute;
+  width: 50px;
+  height: 22px;
+  right: 25px;
+  top: -5px;
+  border-radius: 16px;
+  padding: 1px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%) 0%,
+    hsl(146, 68%, 55%) 100%
+  );
+}
+
+.inner-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1d2029;
+  transition: all 300ms ease-in-out;
+}
+
+.switcher.active > .inner-circle {
+  background: hsl(225, 100%, 98%);
+  margin-left: 27px;
 }
 
 .forms {
   position: relative;
-  margin: 20px;
-  width: 100%;
+  margin: 10px auto;
+  width: 90%;
+  min-height: 5vh;
 }
 
 .search {
   position: absolute;
   background: #2b3743;
+  border: 2px solid #2b3743;
   height: 40px;
-  width: 30%;
-  padding: 10px;
-  margin-left: 10px;
+  width: 15rem;
+  left: 0;
+  padding: 5px;
+  margin-left: 5px;
 }
 
 .search input {
-  background: #2b3743;
+  background-image: url("/css/searchicon.png");
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  background-color: #2b3743;
   border: 2px solid #2b3743;
   color: antiquewhite;
   outline: none;
@@ -63,13 +112,14 @@ body {
 
 .select {
   position: absolute;
-  right: 20px;
+  left: 0;
+  top: 50px;
   height: 40px;
   width: 150px;
-  margin-right: 2rem;
+  margin-right: 5px;
 }
 
-.select select {
+.choose {
   background: #2b3743;
   border: 2px solid #2b3743;
   color: antiquewhite;
@@ -86,6 +136,31 @@ body {
   align-items: center;
   flex-wrap: wrap;
   top: 10vh;
+}
+
+.count {
+  text-align: center;
+  color: antiquewhite;
+}
+
+.item-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 100%;
+  min-height: 100%;
+}
+
+.menu-item {
+  width: 100%;
+  background: #2b3743;
+  margin: 20px;
+  color: antiquewhite;
+}
+
+.menu-item img {
+  width: 100%;
 }
 
 .list {
@@ -106,7 +181,6 @@ body {
 
 .wrapper {
   height: 100px;
-  color: white;
   font-size: 12px;
   padding: 15px;
 }
@@ -115,12 +189,111 @@ img {
   height: 100%;
 }
 
+/*Preloader*/
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--clr-white);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  z-index: 999;
+  transition: var(--transition);
+}
+.hide-preloader {
+  z-index: -999;
+  visibility: hidden;
+}
+
+.mode-text {
+  display: none;
+}
+/*Light theme styles*/
+body.light {
+  background: hsl(0, 0%, 98%);
+}
+.head.light {
+  background-color: #ffffff;
+  border: 2px solid white;
+}
+.heading.light {
+  color: #2b3743;
+}
+.switch.light {
+  color: hsl(230, 17%, 14%);
+}
+.count.light {
+  color: hsl(230, 17%, 14%);
+}
+.menu-item.light {
+  background: #fff;
+  color: hsl(230, 17%, 14%);
+}
+
+.choose.light {
+  background: #fff;
+  border: 2px solid white;
+  color: hsl(230, 17%, 14%);
+}
+
+.search.light {
+  background: #fff;
+  border: 2px solid white;
+}
+
+.input-search.light {
+  background: #fff;
+  border: 2px solid white;
+  color: hsl(230, 17%, 14%);
+}
+
+.wrapper.light {
+  background: white;
+  color: #2b3743;
+  border: 2px solid white;
+}
+
+.anchor.light {
+  background: white;
+}
+
 @media only screen and (min-width: 400px) {
-  .list {
+  .heading {
+    font-size: 24px;
+  }
+
+  .switch {
+    top: 30px;
+    left: 80%;
+    font-size: 12px;
+  }
+
+  .forms {
+    top: 20px;
+  }
+
+  .select {
+    left: 85%;
+    top: 0;
+  }
+
+  .search {
+    left: 0;
+  }
+
+  .holder {
+    min-width: 90%;
+  }
+
+  .item-container {
     flex-basis: 25%;
   }
 
-  .list-items {
+  .menu-item {
     width: 20%;
   }
 }
