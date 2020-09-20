@@ -67,7 +67,7 @@ const displayCountryItems = (countryItems) => {
   let displayCountry = countryItems
     .map((country) => {
       return `<article class="menu-item">
-      <a href="./single_page.html" class="anchor"><img src=${country.flag} alt="Flag Items" class="flags" /></a>
+      <a href="#" class="anchor"><img src=${country.flag} alt="Flag Items" class="flags" /></a>
       <div class="wrapper">
         <h4 class="country-name">${country.name}</h4>
         <p class="population">Population: ${country.population}</p>
@@ -103,11 +103,8 @@ const filterSelect = (countryItems) => {
 
 var filterSearch = (searchItems) => {
   searchInput.addEventListener("keyup", (e) => {
-    const name = e.currentTarget.value;
+    const name = e.currentTarget.value.toLowerCase();
     const countryName = searchItems.filter((searchItem) => {
-      if ((searchItem.length = 0)) {
-        countScore.textContent = "No result found!";
-      }
       if (
         searchItem.name.toLowerCase() === name ||
         searchItem.capital.toLowerCase() === name ||
@@ -119,6 +116,7 @@ var filterSearch = (searchItems) => {
     //console.log(countryRegion);
     if (name === "") {
       displayCountryItems(searchItems);
+      selectItem.value = "";
     } else {
       displayCountryItems(countryName);
       countScore.textContent = "";
