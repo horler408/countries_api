@@ -5,6 +5,7 @@ const selectItem = document.getElementById("select");
 const items = document.querySelector(".menu-item");
 const countScore = container.querySelector(".count");
 const searchInput = document.querySelector(".input-search");
+const date = document.getElementById("date");
 
 const url = "https://restcountries.eu/rest/v2/all";
 //urlSelect = `https://restcountries.eu/rest/v2/region/${region}`;
@@ -107,7 +108,11 @@ var filterSearch = (searchItems) => {
       if ((searchItem.length = 0)) {
         countScore.textContent = "No result found!";
       }
-      if (searchItem.name.toLowerCase() === name) {
+      if (
+        searchItem.name.toLowerCase() === name ||
+        searchItem.capital.toLowerCase() === name ||
+        searchItem.demonym.toLowerCase() === name
+      ) {
         return searchItem;
       }
     });
@@ -121,5 +126,11 @@ var filterSearch = (searchItems) => {
   });
 };
 
+window.addEventListener("DOMContentLoaded", () => {
+  selectItem.value = "";
+});
+
+date.innerHTML = new Date().getFullYear();
+
 getApi();
-filterSelect();
+//filterSelect();

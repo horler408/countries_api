@@ -82,7 +82,6 @@ body {
 
 .forms {
   position: relative;
-  margin: 10px auto;
   width: 90%;
   min-height: 5vh;
 }
@@ -95,8 +94,7 @@ body {
   width: 15rem;
   left: 0;
   top: 10px;
-  padding: 5px;
-  margin-left: 5px;
+  padding-left: 10px;
 }
 
 .search input {
@@ -117,7 +115,7 @@ body {
   top: 60px;
   height: 40px;
   width: 150px;
-  margin-right: 5px;
+  padding-left: 10px;
 }
 
 .choose {
@@ -136,11 +134,13 @@ body {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  min-height: 100vh;
   top: 10vh;
 }
 
 .count {
   text-align: center;
+  margin: 20px;
   color: antiquewhite;
 }
 
@@ -181,7 +181,7 @@ body {
 }
 
 .wrapper {
-  height: 100px;
+  height: 7rem;
   font-size: 12px;
   padding: 15px;
 }
@@ -193,6 +193,29 @@ body {
 
 img {
   height: 100%;
+}
+
+.footer {
+  position: relative;
+  margin: 10px 0;
+  width: 100%;
+  bottom: 5%;
+  text-align: center;
+  min-height: 10vh;
+  color: antiquewhite;
+}
+
+.footer p {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
 /*Preloader*/
@@ -282,11 +305,13 @@ body.light {
   }
 
   .forms {
+    margin: 10px auto;
     top: 20px;
   }
 
   .select {
     left: 85%;
+    margin-right: 10px;
     top: 0;
   }
 
