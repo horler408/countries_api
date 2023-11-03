@@ -329,5 +329,6 @@ body.light {
 
   .menu-item {
     width: 20%;
+    height: auto;
   }
 }
