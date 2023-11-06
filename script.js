@@ -71,7 +71,7 @@ const displayCountryItems = (countryItems) => {
   let displayCountry = countryItems
     .map((country) => {
       return `<article class="menu-item" data-id="item">
-      <a href="#" class="anchor"><img src=${country.flag} alt="Flag Items" class="flags" /></a>
+      <a href="#" class="anchor"><img src=${country.flags.png} alt="Flag Items" class="flags" /></a>
       <div class="wrapper">
         <h4 class="country-name">${country.name}</h4>
         <p class="population">Population: ${country.population}</p>
