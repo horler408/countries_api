@@ -71,9 +71,9 @@ const displayCountryItems = (countryItems) => {
   let displayCountry = countryItems
     .map((country) => {
       return `<article class="menu-item" data-id="item">
-      <a href="#" class="anchor"><img src=${country.flag} alt="Flag Items" class="flags" /></a>
+      <a href="#" class="anchor"><img src=${country.flags.png} alt="Flag Items" class="flags" /></a>
       <div class="wrapper">
-        <h4 class="country-name">${country.name}</h4>
+        <h4 class="country-name">${country.name.official}</h4>
         <p class="population">Population: ${country.population}</p>
         <p class="region">Region: ${country.region}</p>
         <p class="capital">Capital: ${country.capital}</p>
@@ -145,10 +145,10 @@ date.innerHTML = new Date().getFullYear();
 getApi();
 //filterSelect();
 
-let menus = itemContainer.childNodes[1];
-menus.forEach((menu) => {
-  menu.addEventListener('click', (e) => {
-    console.log(e.currentTarget);
-  });
-});
-console.log(menus);
+// let menus = itemContainer.childNodes[1];
+// menus.forEach((menu) => {
+//   menu.addEventListener('click', (e) => {
+//     console.log(e.currentTarget);
+//   });
+// });
+// console.log(menus);
